@@ -1,0 +1,59 @@
+body {
+    background-color: yellow;
+}
+
+
+.rectangle-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.rectangle {
+    position: relative;
+    display: inline-block;
+    width: 400px;
+    height: 250px;
+    margin: 10px;
+    text-align: center;
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+    background-color: #3498db; /* Синій колір за замовчуванням */
+    border-radius: 5px; /* Закруглені кути */
+    overflow: hidden; /* Зображення не виходять за межі */
+}
+
+.rectangle img {
+    width: 100%;
+    height: auto;
+}
+
+.rectangle div {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(52, 73, 94, 0.7); /* Прозорий колір для підкладки */
+    padding: 5px; /* Відступ для тексту */
+}
+
+/* Змінення кольору для кожної категорії */
+.rectangle.IT {
+    background-color: #3498db; /* Синій колір для IT */
+}
+
+.rectangle.Marketing {
+    background-color: #2ecc71; /* Зелений колір для Marketing */
+}
+
+.rectangle.Finance {
+    background-color: #e74c3c; /* Червоний колір для Finance */
+}
+
+/* Стилі для назв категорій */
+.category-name {
+    font-size: 16px;
+    color: white;
+    margin: 0;
+}

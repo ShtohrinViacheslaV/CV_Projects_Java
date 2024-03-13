@@ -1,0 +1,41 @@
+.resume-info {
+    border: 2px solid #ccc;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px; /* задайте максимальну ширину для блоку інформації */
+    background-color: #f9f9f9;
+    overflow: hidden; /* забезпечує вирівнювання блоків */
+}
+
+.content {
+    display: flex; /* встановлюємо контейнеру тип "flex" */
+}
+
+.image-container {
+    flex: 0 0 30%; /* задаємо ширину контейнера для зображення */
+    margin-right: 20px; /* додаємо відступ справа від контейнера зображення */
+
+}
+
+.text-container {
+    flex: 1; /* встановлюємо, щоб текст займав решту доступного простору */
+}
+
+.responsive-image {
+    max-width: 100%; /* Зменшуємо максимальну ширину до 20% */
+    max-height: 100%; /* Зменшуємо максимальну висоту до 20% */
+    height: auto;
+    display: block;
+    margin: 0 auto; /* це робить фото по центру */
+}
+
+.rectangle {
+    width: 200px;
+    height: 100px;
+    margin: 20px;
+    float: left;
+}
+
+.it {background-color: red;}
+.marketing {background-color: green;}
+.finance {background-color: blue;}
