@@ -42,7 +42,7 @@ public class CVServlet extends HttpServlet {
         String action = req.getParameter("action");
 
         if (action == null || action.isEmpty()) {
-            resp.sendRedirect(req.getContextPath() + "/index.jsp");
+            resp.sendRedirect(req.getContextPath() + "index.jsp");
             return;
         }
 
@@ -70,7 +70,7 @@ public class CVServlet extends HttpServlet {
         }
 
         // Якщо не знайдено відповідний процесор, перенаправляємо на головну сторінку
-        resp.sendRedirect(req.getContextPath() + "/index.jsp");
+        resp.sendRedirect(req.getContextPath() + "index.jsp");
     }
 }
 

@@ -12,6 +12,6 @@ public class ProcessorIT extends Processor {
     @Override
     public ProcessorResult handle(HttpServletRequest request) {
         System.out.println("IT processor.....");
-        return new ProcessorResult("/cv_it.jsp", true, null);
+        return new ProcessorResult("pages/cv_it.jsp", true, null);
     }
 }

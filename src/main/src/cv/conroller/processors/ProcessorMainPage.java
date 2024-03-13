@@ -12,6 +12,6 @@ public class ProcessorMainPage extends Processor {
     @Override
     public ProcessorResult handle(HttpServletRequest request) {
         System.out.println("Main page processor.....");
-        return new ProcessorResult("/index.jsp", true, null);
+        return new ProcessorResult("index.jsp", true, null);
     }
 }

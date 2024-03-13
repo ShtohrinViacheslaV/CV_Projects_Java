@@ -12,6 +12,6 @@ public class ProcessorMarketing extends Processor {
     @Override
     public ProcessorResult handle(HttpServletRequest request) {
         System.out.println("Marketing processor.....");
-        return new ProcessorResult("/cv_marketing.jsp", true, null);
+        return new ProcessorResult("pages/cv_marketing.jsp", true, null);
     }
 }

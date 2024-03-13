@@ -5,7 +5,7 @@
 <html>
 <head>
     <title>Resume</title>
-    <link rel="stylesheet" href="css/cv.css">
+    <link rel="stylesheet" href="../css/cv.css">
 </head>
 <%
     String idParam = request.getParameter("id");
@@ -22,7 +22,7 @@
     prop.load(stream);
 
     String imageName = "image" + id + ".jpg"; // Змінна для зберігання назви фотографії
-    String imagePath = "images/" + imageName; // Шлях до фотографії
+    String imagePath = "../images/" + imageName; // Шлях до фотографії
 
     CV cv = new CV(prop.getProperty("name" + id), prop.getProperty("hobby" + id), prop.getProperty("education" + id), prop.getProperty("work_experience" + id), prop.getProperty("skills" + id));
 
@@ -32,7 +32,6 @@
 <div class="resume-info">
     <div class="content">
         <div class="image-container">
-            <!-- Відображення фото відповідно до id -->
             <img src="<%= imagePath %>" class="responsive-image"/>
         </div>
         <div class="text-container">

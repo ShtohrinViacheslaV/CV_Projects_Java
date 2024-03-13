@@ -12,6 +12,6 @@ public class ProcessorFinance extends Processor {
     @Override
     public ProcessorResult handle(HttpServletRequest request) {
         System.out.println("Finance processor.....");
-        return new ProcessorResult("/cv_finance.jsp", true, null);
+        return new ProcessorResult("pages/cv_finance.jsp", true, null);
     }
 }
