@@ -1,0 +1,36 @@
+/* welcome.css */
+
+
+body {
+    background-image: url('../images/cv_background.jpg');
+    background-size: 40%;
+    background-repeat: no-repeat;
+    background-position: center; /* центруємо зображення */
+
+}
+
+.welcome-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}

@@ -25,6 +25,9 @@ public class CVServlet extends HttpServlet {
         processorList.add(new ProcessorIT());
         processorList.add(new ProcessorMarketing());
         processorList.add(new ProcessorFinance());
+        processorList.add(new ProcessorLogOut());
+        processorList.add(new ProcessorShowAllCV());
+
         // Додайте сюди інші процесори, якщо потрібно
     }
 
@@ -42,7 +45,7 @@ public class CVServlet extends HttpServlet {
         String action = req.getParameter("action");
 
         if (action == null || action.isEmpty()) {
-            resp.sendRedirect(req.getContextPath() + "index.jsp");
+            resp.sendRedirect(req.getContextPath() + "template.jsp");
             return;
         }
 

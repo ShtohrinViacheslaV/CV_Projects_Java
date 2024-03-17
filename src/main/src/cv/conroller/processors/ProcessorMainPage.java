@@ -12,6 +12,8 @@ public class ProcessorMainPage extends Processor {
     @Override
     public ProcessorResult handle(HttpServletRequest request) {
         System.out.println("Main page processor.....");
-        return new ProcessorResult("index.jsp", true, null);
+        String username = request.getParameter("username");
+        request.getSession().setAttribute("username", username);
+        return new ProcessorResult("pages/template.jsp", true, null);
     }
 }
