@@ -2,12 +2,31 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
+    background-color: #f2f558;
 }
 
 h1 {
     text-align: center;
     color: #333;
+}
+
+.button-container {
+    text-align: right;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
 }
 
 .rectangle-container {
@@ -32,8 +51,8 @@ h1 {
 }
 
 .rectangle img {
-    width: 300px; /* Зменшення ширини зображення до 80% відносно батьківського блоку */
-    height: 180px;
+    width: 100%; /* Заповнює всю ширину блоку */
+    height: auto; /* Зберігає пропорції */
 }
 
 .rectangle div {

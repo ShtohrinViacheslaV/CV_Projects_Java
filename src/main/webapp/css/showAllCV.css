@@ -2,7 +2,13 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #58d8f5;
+    background-color: #f2f558;
+
+}
+
+h1 {
+    text-align: center;
+    color: #333;
 }
 
 .button-container {
@@ -24,29 +30,15 @@ body {
     border-radius: 4px;
 }
 
-h1 {
-    text-align: center;
-    color: #333;
-}
-
-.resume-details {
-    border: 2px solid #ccc;
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 600px;
-    background-color: #f9f9f9;
-    overflow: hidden;
-}
-
 table {
-    width: 100%;
     border-collapse: collapse;
+    width: 100%;
 }
 
 th, td {
-    border: 1px solid #dddddd;
-    padding: 8px;
+    border: 1px solid #0056b3;
     text-align: left;
+    padding: 8px;
 }
 
 th {

@@ -1,52 +1,140 @@
-<%@ page import="cv.model.CV" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="cv.model.CV, cv.dao.CVDAO" %>
 <%@ page import="java.util.List" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Show All CV</title>
+    <meta charset="UTF-8">
+    <title>All CVs</title>
     <link rel="stylesheet" href="css/showAllCV.css">
-    <script>
-        function showDetails() {
-            var checkboxes = document.getElementsByName("CV");
-            var details = document.getElementsByClassName("details");
-            for (var i = 0; i < checkboxes.length; i++) {
-                if (checkboxes[i].checked) {
-                    details[i].style.display = "block";
-                } else {
-                    details[i].style.display = "none";
-                }
-            }
-        }
-    </script>
 </head>
 <body>
-<div class="cv-container">
-    <h2>Show All CV</h2>
-    <form action="/cv/cvservlet?action=editCV" method="post">
-        <ul>
-            <% List<CV> cvList = (List<CV>) request.getAttribute("cvList");
-                if (cvList != null && !cvList.isEmpty()) {
-                    for (int i = 0; i < cvList.size(); i++) { %>
-            <li>
-                <input type="checkbox" name="CV" value="<%= i %>" onchange="showDetails()">
-                <%= cvList.get(i).getName() %>
-                <div class="details" style="display: none;">
-                    <span>Name: <%= cvList.get(i).getName() %></span><br>
-                    <span>Education: <%= cvList.get(i).getEducation() %></span><br>
-                    <span>Hobby: <%= cvList.get(i).getHobby() %></span><br>
-                    <span>Work Experience: <%= cvList.get(i).getSkills() %></span><br>
-                    <span>Skills: <%= cvList.get(i).getWork_experience() %></span><br>
-                    <button type="submit" name="edit" value="<%= i %>" formaction="/cv/cvservlet?action=editCV">Edit</button>
-                    <button type="submit" name="delete" value="<%= i %>" formaction="/cv/cvservlet?action=deleteCV">Delete</button>
-                </div>
-            </li>
-            <% }
-            } %>
-        </ul>
-    </form>
-    <form action="/cv/cvservlet?action=addNewCV" method="get">
-        <button type="submit" name="addNewCV">Add new CV</button>
-    </form>
+
+<h1>All CVs</h1>
+<div class="button-container">
+    <a href="cvservlet?action=addCV" class="button">Add CV</a>
+    <a href="/cv/cvservlet?action=mainpage" class="button">Home page</a>
+    <a href="/cv/cvservlet?action=logout" class="button">Exit</a>
 </div>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Profession</th>
+        <th>Email</th>
+        <th>Education</th>
+        <th>Work Experience</th>
+        <th>Skills</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% CVDAO cvDAO = new CVDAO();
+        List<CV> cvList = cvDAO.getAllCVs();
+        for (CV cv : cvList) { %>
+    <tr>
+        <td><%= cv.getId() %></td>
+        <td><%= cv.getName() %></td>
+        <td><%= cvDAO.getProfessionNameById(cv.getProfession_id()) %></td>
+        <td><%= cv.getEmail() %></td>
+        <td><%= cv.getEducation() %></td>
+        <td><%= cv.getWork_experience() %></td>
+        <td><%= cv.getSkills() %></td>
+        <td><a href="cvservlet?action=editCV&id=<%= cv.getId() %>">Edit</a></td>
+        <td><a href="cvservlet?action=deleteCV&id=<%= cv.getId() %>">Delete</a></td>
+    </tr>
+    <% } %>
+    </tbody>
+</table>
+
 </body>
 </html>
+
+
+
+<%--<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>--%>
+<%--<%@ page import="cv.model.CV, cv.dao.CVDAO" %>--%>
+<%--<%@ page import="java.util.List" %>--%>
+<%--<!DOCTYPE html>--%>
+<%--<html>--%>
+<%--<head>--%>
+<%--    <meta charset="UTF-8">--%>
+<%--    <title>All CVs</title>--%>
+<%--    <style>--%>
+<%--        table {--%>
+<%--            border-collapse: collapse;--%>
+<%--            width: 100%;--%>
+<%--        }--%>
+<%--        th, td {--%>
+<%--            border: 1px solid #dddddd;--%>
+<%--            text-align: left;--%>
+<%--            padding: 8px;--%>
+<%--        }--%>
+<%--        th {--%>
+<%--            background-color: #f2f2f2;--%>
+<%--        }--%>
+<%--        .button {--%>
+<%--            background-color: #4CAF50;--%>
+<%--            border: none;--%>
+<%--            color: white;--%>
+<%--            padding: 10px 20px;--%>
+<%--            text-align: center;--%>
+<%--            text-decoration: none;--%>
+<%--            display: inline-block;--%>
+<%--            font-size: 16px;--%>
+<%--            margin: 4px 2px;--%>
+<%--            cursor: pointer;--%>
+<%--            border-radius: 4px;--%>
+<%--        }--%>
+<%--    </style>--%>
+<%--</head>--%>
+<%--<body>--%>
+
+<%--<h2>All CVs</h2>--%>
+<%--<p>--%>
+<%--    <a href = "/cv/cvservlet?action=logout" class="button">Exit </a>--%>
+<%--</p>--%>
+<%--<p>--%>
+<%--    <a href = "/cv/cvservlet?action=mainpage" class="button">Home page </a>--%>
+<%--</p>--%>
+<%--<table>--%>
+<%--    <thead>--%>
+<%--    <tr>--%>
+<%--        <th>ID</th>--%>
+<%--        <th>Name</th>--%>
+<%--        <th>Profession</th>--%>
+<%--        <th>Email</th>--%>
+<%--        <th>Education</th>--%>
+<%--        <th>Work Experience</th>--%>
+<%--        <th>Skills</th>--%>
+<%--        <th>Edit</th>--%>
+<%--        <th>Delete</th>--%>
+<%--    </tr>--%>
+<%--    </thead>--%>
+<%--    <tbody>--%>
+<%--    <% CVDAO cvDAO = new CVDAO();--%>
+<%--        List<CV> cvList = cvDAO.getAllCVs();--%>
+<%--        for (CV cv : cvList) { %>--%>
+<%--    <tr>--%>
+<%--        <td><%= cv.getId() %></td>--%>
+<%--        <td><%= cv.getName() %></td>--%>
+<%--        <td><%= cvDAO.getProfessionNameById(cv.getProfession_id()) %></td>--%>
+<%--        <td><%= cv.getEmail() %></td>--%>
+<%--        <td><%= cv.getEducation() %></td>--%>
+<%--        <td><%= cv.getWork_experience() %></td>--%>
+<%--        <td><%= cv.getSkills() %></td>--%>
+<%--        <td><a href="cvservlet?action=editCV&id=<%= cv.getId() %>">Edit</a></td>--%>
+<%--        <td><a href="cvservlet?action=deleteCV&id=<%= cv.getId() %>">Delete</a></td>--%>
+<%--    </tr>--%>
+<%--    <% } %>--%>
+<%--    </tbody>--%>
+<%--</table>--%>
+
+<%--<a href="cvservlet?action=addCV" class="button">Додати резюме</a>--%>
+<%--<a href="cvservlet?action=deleteCV" class="button">Видалити всі резюме</a>--%>
+
+<%--</body>--%>
+<%--</html>--%>
+
