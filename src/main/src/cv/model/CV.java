@@ -19,6 +19,11 @@ public class CV {
         this.skills = skills;
     }
 
+    public CV() {
+
+    }
+
+
     // Додайте геттери та сеттери для всіх полів
 
     public int getId() {
